@@ -330,7 +330,7 @@
       <button onclick="toggleCart(false); switchTab('menu')" class="mt-4 px-4 py-2 bg-stone-900 hover:bg-black text-white rounded-xl text-xs font-bold transition">
         Browse Dishes
       </button>
-    </div>
+    </div> 
 
     <div id="drawer-footer" class="p-5 border-t border-stone-200 bg-stone-50 space-y-3">
       <div class="space-y-1.5 text-xs text-stone-600">
