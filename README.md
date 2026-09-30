@@ -29,12 +29,12 @@
               800: '#1e293b',
               900: '#0f172a',
             },
-            terracotta: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              500: '#ea580c',
-              600: '#c2410c',
-              700: '#9a3412',
+            blue: {
+                    50: '#eff6ff',
+                    100: '#dbeafe',
+                    500: '#3b82f6',
+                    600: '#2563eb',
+                    700: '#1d4ed8',
             },
             sage: {
               50: '#f0fdf4',
@@ -52,7 +52,7 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-[#f4efe6] text-bistro-800 font-sans min-h-screen flex flex-col selection:bg-terracotta-500 selection:text-white">
+<body class="bg-[#f4efe6] text-bistro-800 font-sans min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
 
   <!-- Top Navigation Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
@@ -61,12 +61,12 @@
       <!-- Brand & Table Picker -->
       <div class="flex items-center gap-3">
         <a href="javascript:void(0)" onclick="switchTab('menu')" class="flex items-center gap-2.5 group">
-          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-terracotta-500 to-amber-500 flex items-center justify-center text-white text-base font-display font-extrabold shadow-sm group-hover:scale-105 transition">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-500 to-amber-500 flex items-center justify-center text-white text-base font-display font-extrabold shadow-sm group-hover:scale-105 transition">
             TB
           </div>
           <div>
             <div class="font-display font-extrabold text-xl tracking-tight text-bistro-900 flex items-center gap-0.5">
-              TableBite<span class="text-terracotta-500 text-2xl leading-none">.</span>
+              TableBite<span class="text-blue-500 text-2xl leading-none">.</span>
             </div>
             <p class="text-[10px] tracking-wider text-stone-500 font-semibold uppercase -mt-0.5">Kitchen & Bistro</p>
           </div>
@@ -74,14 +74,14 @@
 
         <div class="hidden md:flex items-center gap-2 pl-4 border-l border-stone-200">
           <label for="header-table-select" class="text-xs text-stone-500 font-medium">Table Spot:</label>
-          <select id="header-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-terracotta-700 text-xs font-bold rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+          <select id="header-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-blue-700 text-xs font-bold rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
           </select>
         </div>
       </div>
 
       <!-- Navigation Tabs -->
       <nav class="hidden lg:flex items-center gap-1 bg-stone-100 p-1.5 rounded-2xl border border-stone-200">
-        <button onclick="switchTab('menu')" id="btn-tab-menu" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-terracotta-600 shadow-xs transition">
+        <button onclick="switchTab('menu')" id="btn-tab-menu" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-blue-600 shadow-xs transition">
           Menu
         </button>
         <button onclick="switchTab('favs')" id="btn-tab-favs" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
@@ -103,7 +103,7 @@
         <button onclick="toggleCart(true)" class="relative flex items-center gap-2.5 px-4 py-2.5 bg-bistro-900 hover:bg-black text-white text-xs font-bold rounded-2xl shadow-sm transition active:scale-95">
           <span class="text-sm">🛒</span>
           <span>Cart</span>
-          <span id="cart-item-badge" class="bg-terracotta-500 text-white text-[11px] px-2 py-0.2 rounded-full font-bold">0</span>
+          <span id="cart-item-badge" class="bg-blue-500 text-white text-[11px] px-2 py-0.2 rounded-full font-bold">0</span>
           <span id="cart-price-pill" class="pl-1 border-l border-stone-700 text-amber-300 font-mono">₹0</span>
         </button>
 
@@ -117,7 +117,7 @@
     <div id="mobile-nav" class="hidden lg:hidden border-t border-stone-200 bg-white px-4 py-3 space-y-2">
       <div class="flex items-center justify-between py-1">
         <span class="text-xs font-semibold text-stone-600">Your Table:</span>
-        <select id="mobile-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-terracotta-700 text-xs font-bold rounded-xl px-2.5 py-1.5">
+        <select id="mobile-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-blue-700 text-xs font-bold rounded-xl px-2.5 py-1.5">
         </select>
       </div>
       <div class="grid grid-cols-5 gap-1 pt-1 text-center text-xs font-bold">
@@ -154,7 +154,7 @@
           <div class="text-[10px] text-stone-500 uppercase font-semibold">Tables</div>
         </div>
         <div class="px-3 border-r border-stone-300 text-center">
-          <div class="font-display font-bold text-base text-terracotta-600">₹29</div>
+          <div class="font-display font-bold text-base text-blue-600">₹29</div>
           <div class="text-[10px] text-stone-500 uppercase font-semibold">Starts At</div>
         </div>
         <div class="px-3 text-center">
@@ -180,7 +180,7 @@
               type="text" 
               id="dish-search-input" 
               placeholder="Search dishes (samosa, biryani, paneer, lassi)..." 
-              class="w-full bg-stone-50 border border-stone-200 rounded-2xl pl-9 pr-8 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:bg-white transition"
+              class="w-full bg-stone-50 border border-stone-200 rounded-2xl pl-9 pr-8 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
             />
             <button onclick="clearSearch()" id="clear-search-btn" class="hidden absolute right-3 top-2.5 text-stone-400 hover:text-stone-700 text-xs">✕</button>
           </div>
@@ -197,7 +197,7 @@
           </div>
 
           <!-- Sort Select -->
-          <select id="dish-sorter" class="bg-stone-50 border border-stone-200 text-xs font-bold text-stone-700 rounded-2xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+          <select id="dish-sorter" class="bg-stone-50 border border-stone-200 text-xs font-bold text-stone-700 rounded-2xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="recommended">Featured Items</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
@@ -232,7 +232,7 @@
           <h2 class="text-xl font-display font-bold text-stone-900">Your Saved Picks</h2>
           <p class="text-xs text-stone-500">Handpicked dishes for quick re-ordering at TableBite.</p>
         </div>
-        <button onclick="switchTab('menu')" class="text-xs font-bold text-terracotta-600 hover:underline">
+        <button onclick="switchTab('menu')" class="text-xs font-bold text-blue-600 hover:underline">
           ← Back to Menu
         </button>
       </div>
@@ -243,7 +243,7 @@
         <div class="text-3xl mb-2">🤍</div>
         <h4 class="text-base font-bold text-stone-800">No favorites saved yet</h4>
         <p class="text-xs text-stone-500 mt-1">Tap the heart on any food card to bookmark it here.</p>
-        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-terracotta-600 text-white text-xs font-bold rounded-xl">
+        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">
           Browse Menu
         </button>
       </div>
@@ -260,7 +260,7 @@
           <button onclick="openCyberGame()" class="px-3 py-1.5 bg-cyan-100 hover:bg-cyan-200 border border-cyan-300 rounded-xl text-xs font-bold text-cyan-900 flex items-center gap-1 transition">
             <span>⚡</span> Play Cyber Line
           </button>
-          <button onclick="switchTab('menu')" class="text-xs font-bold text-terracotta-600 hover:underline">
+          <button onclick="switchTab('menu')" class="text-xs font-bold text-blue-600 hover:underline">
             + Add More Items
           </button>
         </div>
@@ -271,7 +271,7 @@
         <div class="text-3xl mb-2">🧾</div>
         <h4 class="text-base font-bold text-stone-800">No active orders placed</h4>
         <p class="text-xs text-stone-500 mt-1">Select items from the menu and confirm your table number to start dining.</p>
-        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-terracotta-600 text-white text-xs font-bold rounded-xl">
+        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">
           Browse Dishes
         </button>
       </div>
@@ -339,11 +339,11 @@
         <div class="flex justify-between text-emerald-700 font-semibold"><span>Dine-In Service Fee</span><span>₹0 (Free)</span></div>
         <div class="pt-2 border-t border-stone-300 flex justify-between text-sm font-extrabold text-stone-900">
           <span>Total Payable</span>
-          <span id="calc-grandtotal" class="font-mono text-terracotta-600 text-base">₹0</span>
+          <span id="calc-grandtotal" class="font-mono text-blue-600 text-base">₹0</span>
         </div>
       </div>
 
-      <button onclick="openCheckoutModal()" class="w-full py-3.5 bg-terracotta-600 hover:bg-terracotta-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition">
+      <button onclick="openCheckoutModal()" class="w-full py-3.5 bg-terracotta-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition">
         Confirm & Send To Kitchen →
       </button>
     </div>
@@ -363,33 +363,33 @@
       <form id="checkout-form" class="space-y-3.5 text-xs">
         <div>
           <label for="modal-table-select" class="block font-bold text-stone-700 mb-1">Confirm Table Number *</label>
-          <select id="modal-table-select" required class="w-full bg-stone-50 border border-stone-300 text-stone-900 font-bold rounded-xl p-2.5 focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+          <select id="modal-table-select" required class="w-full bg-stone-50 border border-stone-300 text-stone-900 font-bold rounded-xl p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
           </select>
         </div>
 
         <div class="grid grid-cols-2 gap-2">
           <div>
             <label for="modal-cust-name" class="block font-bold text-stone-700 mb-1">Your Name *</label>
-            <input type="text" id="modal-cust-name" required placeholder="Guest name" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500" />
+            <input type="text" id="modal-cust-name" required placeholder="Guest name" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div>
             <label for="modal-cust-phone" class="block font-bold text-stone-700 mb-1">Phone Number *</label>
-            <input type="tel" id="modal-cust-phone" required pattern="[0-9]{10}" placeholder="10 digits" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500" />
+            <input type="tel" id="modal-cust-phone" required pattern="[0-9]{10}" placeholder="10 digits" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
         </div>
-
+        
         <div>
           <label for="modal-cust-notes" class="block font-bold text-stone-700 mb-1">Kitchen Instructions</label>
-          <input type="text" id="modal-cust-notes" placeholder="e.g. Less spicy, warm water..." class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500" />
+          <input type="text" id="modal-cust-notes" placeholder="e.g. Less spicy, warm water..." class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
 
         <div>
           <label class="block font-bold text-stone-700 mb-1">Payment Method</label>
           <div class="grid grid-cols-3 gap-2">
-            <label class="pay-method-pill border-2 border-terracotta-500 bg-terracotta-50 rounded-xl p-2.5 text-center cursor-pointer block">
+            <label class="pay-method-pill border-2 border-blue-500 bg-blue-50 rounded-xl p-2.5 text-center cursor-pointer block">
               <input type="radio" name="paymethod" value="Table UPI / QR" checked class="hidden" onchange="selectPaymentMethod(this)">
               <div class="font-bold text-stone-900">UPI QR</div>
-              <div class="text-[10px] text-terracotta-700">At Table</div>
+              <div class="text-[10px] text-blue-700">At Table</div>
             </label>
             <label class="pay-method-pill border border-stone-200 bg-white rounded-xl p-2.5 text-center cursor-pointer block hover:border-stone-400">
               <input type="radio" name="paymethod" value="Card Machine" class="hidden" onchange="selectPaymentMethod(this)">
@@ -406,7 +406,7 @@
 
         <div class="p-3 bg-stone-100 rounded-xl flex items-center justify-between font-medium">
           <span class="text-stone-600">Total Billed Amount:</span>
-          <span id="modal-final-amount" class="text-base font-mono font-black text-terracotta-600">₹0</span>
+          <span id="modal-final-amount" class="text-base font-mono font-black text-blue-600">₹0</span>
         </div>
 
         <button type="submit" class="w-full py-3.5 bg-stone-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider rounded-xl transition">
@@ -754,7 +754,7 @@
             onclick="setCategory('${cat}')"
             class="px-4 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition ${
               isActive 
-                ? 'bg-terracotta-600 text-white shadow-xs' 
+                ? 'bg-blue-600 text-white shadow-xs' 
                 : 'bg-stone-100 text-stone-600 hover:bg-stone-200 border border-stone-200'
             }"
           >
@@ -833,7 +833,7 @@
 
           <div class="p-4 flex-1 flex flex-col justify-between gap-3">
             <div>
-              <span class="text-[10px] uppercase font-bold text-terracotta-600 tracking-wider">${dish.category}</span>
+              <span class="text-[10px] uppercase font-bold text-blue-600 tracking-wider">${dish.category}</span>
               <h4 class="font-display font-bold text-stone-900 text-sm leading-snug line-clamp-1 mt-0.5">${dish.name}</h4>
               <p class="text-xs text-stone-500 mt-1 line-clamp-2 leading-relaxed">${dish.description}</p>
             </div>
@@ -1087,7 +1087,7 @@
       });
       const current = radio.closest("label");
       if (current) {
-        current.className = "pay-method-pill border-2 border-terracotta-500 bg-terracotta-50 rounded-xl p-2.5 text-center cursor-pointer block";
+        current.className = "pay-method-pill border-2 border-blue-500 bg-blue-50 rounded-xl p-2.5 text-center cursor-pointer block";
       }
     }
 
@@ -1202,7 +1202,7 @@
 
             <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
               <span class="text-stone-500">Method: ${order.payMode}</span>
-              <span class="text-stone-700">Total Billed: <strong class="font-mono text-terracotta-600 text-sm">₹${order.total}</strong></span>
+              <span class="text-stone-700">Total Billed: <strong class="font-mono text-blue-600 text-sm">₹${order.total}</strong></span>
             </div>
           </div>
         `;
@@ -1231,7 +1231,7 @@
             <div>
               <div class="flex items-center justify-between pb-2 border-b border-stone-100">
                 <div>
-                  <span class="font-display font-black text-terracotta-600 text-base">${ord.table}</span>
+                  <span class="font-display font-black text-blue-600 text-base">${ord.table}</span>
                   <span class="text-stone-400 text-xs ml-1">#${ord.id}</span>
                 </div>
                 <span class="font-mono text-xs text-stone-400">${ord.timestamp}</span>
@@ -1299,7 +1299,7 @@
       const activeView = document.getElementById(`view-${tab}`);
       const activeBtn = document.getElementById(`btn-tab-${tab}`);
       if (activeView) activeView.classList.remove("hidden");
-      if (activeBtn) activeBtn.className = "px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-terracotta-600 shadow-xs transition";
+      if (activeBtn) activeBtn.className = "px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-blue-600 shadow-xs transition";
 
       if (tab === 'favs') renderFavorites();
       if (tab === 'orders') renderOrders();
