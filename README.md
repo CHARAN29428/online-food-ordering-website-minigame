@@ -47,6 +47,42 @@
       }
     }
   </script>
+
+  <style>
+    .project-shell{min-height:100vh;background:#f8f6f0;color:#201449;padding:34px clamp(18px,4vw,64px) 0;font-family:'Plus Jakarta Sans',sans-serif}
+    .project-top{max-width:1320px;margin:auto;display:grid;grid-template-columns: minmax(280px, .95fr) minmax(320px,1.05fr);gap:clamp(25px,4vw,60px);align-items:center}
+    .project-photo{height:310px;position:relative;border-radius:5px 100px 5px 5px;overflow:hidden;border:2px solid #dfc47c;box-shadow:0 10px 28px #21144918}
+    .project-photo img{width:100%;height:100%;object-fit:cover}
+    .photo-label{position:absolute;bottom:0;left:0;background:#211449dc;color:white;padding:10px 16px;font-size:10px;letter-spacing:2px;font-weight:800}
+    .project-intro{text-align:center}
+    .eyebrow{font-size:11px;letter-spacing:3px;font-weight:800;color:#a47b25}
+    .project-intro h1{font-size:clamp(48px,6.5vw,82px);line-height:1;font-weight:900;letter-spacing:-4px;margin:10px 0;color:#402080}
+    .project-intro h1 span{color:#c99b3d}
+    .project-subtitle{border-radius:30px;background:#eee8fb;border:1px solid #e0d5f5;padding:12px 16px;font-weight:800;margin:18px auto;max-width:430px}
+    .project-description{font-size:13px;line-height:1.8;color:#696273;max-width:470px;margin:0 auto}
+    .project-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .project-actions button{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 17px;border-radius:14px;min-width:185px;box-shadow:0 5px 15px #21144918;transition:transform .2s}
+    .project-actions button:hover{transform:translateY(-2px)}
+    .project-actions button>span:first-child{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;font-size:20px}
+    .project-actions b,.project-actions small{display:block}.project-actions b{font-size:13px}.project-actions small{font-size:10px;margin-top:3px}
+    .abstract-btn{background:#3d197d;color:white;border:1px solid #3d197d}.abstract-btn>span:first-child{background:#ffffff24}
+    .website-btn{background:white;color:#28134f;border:1px solid #c69b3f}.website-btn>span:first-child{background:#c99b3d;color:white}
+    .project-info-grid{max-width:1320px;margin:24px auto 18px;display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px}
+    .project-info-card{background:#fff;border:1px solid #e8e2ef;border-radius:18px;padding:20px;min-height:150px;box-shadow:0 7px 20px #21144908}
+    .project-info-card h3{font-size:14px;font-weight:900;border-bottom:2px solid #d4b35e;padding-bottom:12px;margin:0 0 13px}
+    .project-info-card h4{font-size:15px;font-weight:800;margin:17px 0 5px}.project-info-card p{font-size:12px;color:#6e6879;line-height:1.6}
+    .project-info-card ol{list-style:none;padding:0;margin:0;counter-reset:members}.project-info-card li{counter-increment:members;display:flex;gap:8px;align-items:center;justify-content:space-between;font-size:10px;font-weight:700;margin:9px 0}.project-info-card li:before{content:counter(members);background:#432080;color:#fff;border-radius:50%;width:17px;height:17px;display:grid;place-items:center;flex-shrink:0}.project-info-card li span{flex:1}.project-info-card li small{color:#8c829b;font-size:9px;border-left:1px solid #d4b35e;padding-left:7px}
+    .project-footer-line{height:9px;background:linear-gradient(90deg,#3d197d 0 55%,#c99b3d 55%);max-width:1320px;margin:0 auto}
+    .abstract-screen{min-height:100vh;background:#eef0ff;padding:22px 16px 50px;font-family:'Times New Roman',serif;color:#111}
+    .back-home{display:block;max-width:760px;margin:0 auto 14px;background:#402080;color:white;border-radius:8px;padding:10px 16px;font:600 13px 'Plus Jakarta Sans',sans-serif}
+    .abstract-paper{max-width:760px;min-height:720px;background:#fff;border:1px solid #333;outline:1px solid #333;outline-offset:-6px;margin:auto;padding:42px clamp(25px,7vw,70px);box-shadow:0 4px 20px #1111}
+    .abstract-paper h2{text-align:center;font-size:16px;margin:0 0 18px;font-weight:bold}
+    .abstract-paper>p{font-size:13px;line-height:1.75;text-align:justify;text-indent:28px;margin:0 0 12px}
+    .abstract-signatures{text-align:right;margin-top:30px;font-size:11px;line-height:1.6}
+    .abstract-hod{margin-top:36px;font-size:13px;line-height:1.7}
+    @media(max-width:760px){.project-top{grid-template-columns:1fr}.project-photo{height:230px;border-radius:5px 65px 5px 5px}.project-info-grid{grid-template-columns:1fr}.project-intro h1{letter-spacing:-2px}.project-shell{padding-top:22px}.project-info-card li{font-size:11px}.abstract-paper{padding:36px 25px;min-height:0}}
+  </style>
+
   <style>
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -54,6 +90,64 @@
 </head>
 <body class="bg-[#f4efe6] text-bistro-800 font-sans min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
 
+
+  <!-- Project landing page -->
+  <section id="project-home" class="project-shell">
+    <div class="project-top">
+      <div class="project-photo">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1100&q=85" alt="Delicious restaurant food">
+        <span class="photo-label">TASTEBITE • DINE-IN EXPERIENCE</span>
+      </div>
+      <div class="project-intro">
+        <p class="eyebrow">RAGHU ENGINEERING COLLEGE</p>
+        <h1>TASTE<span>BITE</span></h1>
+        <div class="project-subtitle">Restaurant and Food Ordering Website</div>
+        <p class="project-description">A web-based mini project for browsing a restaurant menu, adding items to a cart, and placing dine-in orders with ease.</p>
+        <div class="project-actions">
+          <button class="abstract-btn" onclick="showProjectPage('abstract')"><span>▤</span><span><b>Abstract</b><small>Read about the project</small></span></button>
+          <button class="website-btn" onclick="showProjectPage('website')"><span>◎</span><span><b>Website Link</b><small>Open TasteBite</small></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="project-info-grid">
+      <article class="project-info-card">
+        <h3>♧ &nbsp; Project Members</h3>
+        <ol>
+          <li><span>Lankada Leela Lakshitha</span><small>24981A42A4</small></li>
+          <li><span>Sunkari Lakshmi Lavanya</span><small>24981A420A</small></li>
+          <li><span>Are Charan</span><small>24981A421A</small></li>
+          <li><span>Modalavalasa Gnaneswara</span><small>24981A422J</small></li>
+          <li><span>Kasa Rakesh Vinay Shankar Manikanta</span><small>24981A425C</small></li>
+        </ol>
+      </article>
+      <article class="project-info-card">
+        <h3>♙ &nbsp; Project Guide</h3>
+        <h4>Mr. K. Sandeep Kumar</h4><p>Assistant Professor<br>Department of CSE (AI &amp; ML)</p>
+      </article>
+      <article class="project-info-card">
+        <h3>♧ &nbsp; HoD CSE (AI &amp; ML)</h3>
+        <h4>Dr. G. Sridevi</h4><p>Professor &amp; Head<br>Department of CSE (AI &amp; ML)</p>
+      </article>
+    </div>
+    <div class="project-footer-line"></div>
+  </section>
+
+  <!-- Abstract page -->
+  <section id="project-abstract" class="abstract-screen hidden">
+    <button class="back-home" onclick="showProjectPage('home')">← Back to Home</button>
+    <article class="abstract-paper">
+      <h2>ABSTRACT</h2>
+      <p>The Restaurant and Food Ordering Website is a web-based platform designed to make browsing a restaurant menu and placing dine-in orders simple and convenient. Customers can explore food items by category, view item details and prices, add selected dishes to a cart, adjust quantities, and review the bill before confirming an order. The website also includes favourites, customer reviews, an about section, and an optional mini-game that customers can choose to play after placing an order.</p>
+      <p>The project is developed using HTML, CSS, JavaScript, and Tailwind CSS. HTML structures the webpages, CSS and Tailwind CSS are used to create a responsive and user-friendly interface, and JavaScript manages menu filtering, cart operations, bill calculation, order confirmation, reviews, and the mini-game. This version is a front-end prototype and stores demo information in the user's browser; it does not connect to a live restaurant database or kitchen system.</p>
+      <p>The main aim of the project is to provide a simple digital interface for customers ordering food while seated inside the restaurant. By organizing menu items and displaying the order total clearly, the system demonstrates how a website can make the dine-in ordering process more convenient and engaging.</p>
+      <div class="abstract-signatures">
+        <p>LANKADA LEELA LAKSHITHA – 24981A42A4<br>SUNKARI LAKSHMI LAVANYA – 24981A420A<br>ARE CHARAN – 24981A421A<br>MODAVALAVASA GNANESWARA – 24981A422J<br>KASA RAKESH VINAY SHANKAR MANIKANTA – 24981A425C</p>
+      </div>
+      <div class="abstract-hod">Dr. G. Sridevi<br>Professor &amp; Head<br>CSE (AI &amp; ML)</div>
+    </article>
+  </section>
+
+  <div id="website-app" class="hidden">
   <!-- Top Navigation Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between gap-4">
@@ -605,6 +699,21 @@
       </div>
     </div>
   </footer>
+
+  </div>
+
+
+  <script>
+    function showProjectPage(page) {
+      const home = document.getElementById('project-home');
+      const abstractPage = document.getElementById('project-abstract');
+      const website = document.getElementById('website-app');
+      home.classList.toggle('hidden', page !== 'home');
+      abstractPage.classList.toggle('hidden', page !== 'abstract');
+      website.classList.toggle('hidden', page !== 'website');
+      window.scrollTo({top: 0, behavior: 'instant'});
+    }
+  </script>
 
   <script>
     // Food items catalogue with reliable direct image links
