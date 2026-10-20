@@ -148,6 +148,10 @@
   </section>
 
   <div id="website-app" class="hidden">
+  <!-- Back to project landing page -->
+  <div class="bg-[#eef0ff] px-4 py-3 border-b border-stone-200">
+    <button type="button" class="back-home" onclick="showProjectPage('home')">← Back to Home</button>
+  </div>
   <!-- Top Navigation Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between gap-4">
