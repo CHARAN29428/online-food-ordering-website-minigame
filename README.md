@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TableBite Restaurant | Fresh Table Dine-In</title>
+  <title>TasteBite Restaurant | Food Ordering & Mini Game</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,12 +29,12 @@
               800: '#1e293b',
               900: '#0f172a',
             },
-            terracotta: {
-              50: '#fff7ed',
-              100: '#ffedd5',
-              500: '#ea580c',
-              600: '#c2410c',
-              700: '#9a3412',
+            blue: {
+                    50: '#eff6ff',
+                    100: '#dbeafe',
+                    500: '#3b82f6',
+                    600: '#2563eb',
+                    700: '#1d4ed8',
             },
             sage: {
               50: '#f0fdf4',
@@ -52,7 +52,7 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-[#f4efe6] text-bistro-800 font-sans min-h-screen flex flex-col selection:bg-terracotta-500 selection:text-white">
+<body class="bg-[#f4efe6] text-bistro-800 font-sans min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
 
   <!-- Top Navigation Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
@@ -61,12 +61,12 @@
       <!-- Brand & Table Picker -->
       <div class="flex items-center gap-3">
         <a href="javascript:void(0)" onclick="switchTab('menu')" class="flex items-center gap-2.5 group">
-          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-terracotta-500 to-amber-500 flex items-center justify-center text-white text-base font-display font-extrabold shadow-sm group-hover:scale-105 transition">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-blue-500 to-amber-500 flex items-center justify-center text-white text-base font-display font-extrabold shadow-sm group-hover:scale-105 transition">
             TB
           </div>
           <div>
             <div class="font-display font-extrabold text-xl tracking-tight text-bistro-900 flex items-center gap-0.5">
-              TableBite<span class="text-terracotta-500 text-2xl leading-none">.</span>
+              TableBite<span class="text-blue-500 text-2xl leading-none">.</span>
             </div>
             <p class="text-[10px] tracking-wider text-stone-500 font-semibold uppercase -mt-0.5">Kitchen & Bistro</p>
           </div>
@@ -74,14 +74,14 @@
 
         <div class="hidden md:flex items-center gap-2 pl-4 border-l border-stone-200">
           <label for="header-table-select" class="text-xs text-stone-500 font-medium">Table Spot:</label>
-          <select id="header-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-terracotta-700 text-xs font-bold rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+          <select id="header-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-blue-700 text-xs font-bold rounded-xl px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
           </select>
         </div>
       </div>
 
       <!-- Navigation Tabs -->
       <nav class="hidden lg:flex items-center gap-1 bg-stone-100 p-1.5 rounded-2xl border border-stone-200">
-        <button onclick="switchTab('menu')" id="btn-tab-menu" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-terracotta-600 shadow-xs transition">
+        <button onclick="switchTab('menu')" id="btn-tab-menu" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-blue-600 shadow-xs transition">
           Menu
         </button>
         <button onclick="switchTab('favs')" id="btn-tab-favs" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
@@ -90,20 +90,20 @@
         <button onclick="switchTab('orders')" id="btn-tab-orders" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
           Table Orders
         </button>
-        <button onclick="switchTab('kds')" id="btn-tab-kds" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-700 hover:text-stone-900 border border-dashed border-stone-300 transition">
-          Staff KDS
+        <button onclick="switchTab('reviews')" id="btn-tab-reviews" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
+          Reviews
         </button>
-        <button onclick="openCyberGame()" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-cyan-900 bg-cyan-100 hover:bg-cyan-200 border border-cyan-300 transition flex items-center gap-1">
-          <span>⚡</span> Cyber Line
+        <button onclick="switchTab('about')" id="btn-tab-about" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
+          About Us
         </button>
       </nav>
 
       <!-- Cart Drawer Trigger & Mobile Hamburger -->
       <div class="flex items-center gap-2.5">
-        <button onclick="toggleCart(true)" class="relative flex items-center gap-2.5 px-4 py-2.5 bg-bistro-900 hover:bg-black text-white text-xs font-bold rounded-2xl shadow-sm transition active:scale-95">
+        <button id="cart-header-button" onclick="toggleCart(true)" class="hidden relative items-center gap-2.5 px-4 py-2.5 bg-bistro-900 hover:bg-black text-white text-xs font-bold rounded-2xl shadow-sm transition active:scale-95">
           <span class="text-sm">🛒</span>
           <span>Cart</span>
-          <span id="cart-item-badge" class="bg-terracotta-500 text-white text-[11px] px-2 py-0.2 rounded-full font-bold">0</span>
+          <span id="cart-item-badge" class="bg-blue-500 text-white text-[11px] px-2 py-0.2 rounded-full font-bold">0</span>
           <span id="cart-price-pill" class="pl-1 border-l border-stone-700 text-amber-300 font-mono">₹0</span>
         </button>
 
@@ -117,15 +117,15 @@
     <div id="mobile-nav" class="hidden lg:hidden border-t border-stone-200 bg-white px-4 py-3 space-y-2">
       <div class="flex items-center justify-between py-1">
         <span class="text-xs font-semibold text-stone-600">Your Table:</span>
-        <select id="mobile-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-terracotta-700 text-xs font-bold rounded-xl px-2.5 py-1.5">
+        <select id="mobile-table-select" onchange="changeTable(this.value)" class="bg-stone-50 border border-stone-300 text-blue-700 text-xs font-bold rounded-xl px-2.5 py-1.5">
         </select>
       </div>
       <div class="grid grid-cols-5 gap-1 pt-1 text-center text-xs font-bold">
         <button onclick="switchTab('menu'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Menu</button>
         <button onclick="switchTab('favs'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Saved</button>
         <button onclick="switchTab('orders'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Orders</button>
-        <button onclick="switchTab('kds'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">KDS</button>
-        <button onclick="openCyberGame(); toggleMobileNav()" class="py-2 rounded-xl bg-cyan-100 text-cyan-900 font-extrabold">⚡ Play</button>
+        <button onclick="switchTab('reviews'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Reviews</button>
+        <button onclick="switchTab('about'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">About</button>
       </div>
     </div>
   </header>
@@ -154,7 +154,7 @@
           <div class="text-[10px] text-stone-500 uppercase font-semibold">Tables</div>
         </div>
         <div class="px-3 border-r border-stone-300 text-center">
-          <div class="font-display font-bold text-base text-terracotta-600">₹29</div>
+          <div class="font-display font-bold text-base text-blue-600">₹29</div>
           <div class="text-[10px] text-stone-500 uppercase font-semibold">Starts At</div>
         </div>
         <div class="px-3 text-center">
@@ -180,7 +180,7 @@
               type="text" 
               id="dish-search-input" 
               placeholder="Search dishes (samosa, biryani, paneer, lassi)..." 
-              class="w-full bg-stone-50 border border-stone-200 rounded-2xl pl-9 pr-8 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-terracotta-500 focus:bg-white transition"
+              class="w-full bg-stone-50 border border-stone-200 rounded-2xl pl-9 pr-8 py-2.5 text-xs text-stone-800 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition"
             />
             <button onclick="clearSearch()" id="clear-search-btn" class="hidden absolute right-3 top-2.5 text-stone-400 hover:text-stone-700 text-xs">✕</button>
           </div>
@@ -197,7 +197,7 @@
           </div>
 
           <!-- Sort Select -->
-          <select id="dish-sorter" class="bg-stone-50 border border-stone-200 text-xs font-bold text-stone-700 rounded-2xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+          <select id="dish-sorter" class="bg-stone-50 border border-stone-200 text-xs font-bold text-stone-700 rounded-2xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
             <option value="recommended">Featured Items</option>
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
@@ -232,7 +232,7 @@
           <h2 class="text-xl font-display font-bold text-stone-900">Your Saved Picks</h2>
           <p class="text-xs text-stone-500">Handpicked dishes for quick re-ordering at TableBite.</p>
         </div>
-        <button onclick="switchTab('menu')" class="text-xs font-bold text-terracotta-600 hover:underline">
+        <button onclick="switchTab('menu')" class="text-xs font-bold text-blue-600 hover:underline">
           ← Back to Menu
         </button>
       </div>
@@ -243,7 +243,7 @@
         <div class="text-3xl mb-2">🤍</div>
         <h4 class="text-base font-bold text-stone-800">No favorites saved yet</h4>
         <p class="text-xs text-stone-500 mt-1">Tap the heart on any food card to bookmark it here.</p>
-        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-terracotta-600 text-white text-xs font-bold rounded-xl">
+        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">
           Browse Menu
         </button>
       </div>
@@ -257,13 +257,11 @@
           <p class="text-xs text-stone-500">Real-time status updates directly from the TableBite pass.</p>
         </div>
         <div class="flex items-center gap-3">
-          <button onclick="openCyberGame()" class="px-3 py-1.5 bg-cyan-100 hover:bg-cyan-200 border border-cyan-300 rounded-xl text-xs font-bold text-cyan-900 flex items-center gap-1 transition">
-            <span>⚡</span> Play Cyber Line
-          </button>
-          <button onclick="switchTab('menu')" class="text-xs font-bold text-terracotta-600 hover:underline">
+          <button onclick="switchTab('menu')" class="text-xs font-bold text-blue-600 hover:underline">
             + Add More Items
           </button>
         </div>
+      </div>
 
       <div id="table-orders-container" class="space-y-3"></div>
 
@@ -271,36 +269,109 @@
         <div class="text-3xl mb-2">🧾</div>
         <h4 class="text-base font-bold text-stone-800">No active orders placed</h4>
         <p class="text-xs text-stone-500 mt-1">Select items from the menu and confirm your table number to start dining.</p>
-        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-terracotta-600 text-white text-xs font-bold rounded-xl">
+        <button onclick="switchTab('menu')" class="mt-4 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl">
           Browse Dishes
         </button>
       </div>
     </div>
 
-    <!-- 4. Kitchen Display System (KDS) View -->
-    <div id="view-kds" class="hidden space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-stone-300">
-        <div>
-          <h2 class="text-xl font-display font-bold text-stone-900 flex items-center gap-2">
-            TableBite Staff KDS <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          </h2>
-          <p class="text-xs text-stone-500">Ticket management for line cooks and kitchen staff.</p>
+    <!-- Customer Reviews View -->
+    <section id="view-reviews" class="hidden space-y-5">
+      <div class="pb-3 border-b border-stone-300">
+        <h2 class="text-2xl font-display font-extrabold text-stone-900">Customer Reviews</h2>
+        <p class="text-sm text-stone-500 mt-1">Your feedback helps TableBite improve every meal.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="bg-white border border-stone-200 rounded-3xl p-5">
+          <div class="text-amber-500 text-lg">★★★★★</div><h3 class="font-bold mt-2">Priya K.</h3>
+          <p class="text-sm text-stone-600 mt-2">“The menu was easy to browse and ordering was simple. I liked seeing the total before confirming.”</p>
+        </article>
+        <article class="bg-white border border-stone-200 rounded-3xl p-5">
+          <div class="text-amber-500 text-lg">★★★★★</div><h3 class="font-bold mt-2">Rahul M.</h3>
+          <p class="text-sm text-stone-600 mt-2">“Good variety and clear prices. The waiting game is a fun idea while waiting for food.”</p>
+        </article>
+        <article class="bg-white border border-stone-200 rounded-3xl p-5">
+          <div class="text-amber-500 text-lg">★★★★☆</div><h3 class="font-bold mt-2">Sneha R.</h3>
+          <p class="text-sm text-stone-600 mt-2">“The favorites and cart quantity controls make it convenient to choose food.”</p>
+        </article>
+      </div>
+      <div class="bg-white border border-stone-200 rounded-3xl p-5 sm:p-6">
+        <h3 class="font-display font-bold text-lg text-stone-900">Write a Review</h3>
+        <p class="text-xs text-stone-500 mt-1">Demo reviews are stored in this browser only.</p>
+        <form id="review-form" class="mt-4 grid gap-3">
+          <input id="review-name" required maxlength="50" placeholder="Your name" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-sm">
+          <select id="review-rating" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="5">★★★★★ - Excellent</option><option value="4">★★★★☆ - Very good</option><option value="3">★★★☆☆ - Good</option><option value="2">★★☆☆☆ - Fair</option><option value="1">★☆☆☆☆ - Needs improvement</option>
+          </select>
+          <textarea id="review-message" required maxlength="300" rows="3" placeholder="Share your experience..." class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-sm"></textarea>
+          <button class="justify-self-start px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold" type="submit">Submit Review</button>
+        </form>
+        <div id="submitted-reviews" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5"></div>
+      </div>
+    </section>
+
+    <!-- About Us View -->
+    <section id="view-about" class="hidden space-y-6">
+      <div class="bg-white border border-stone-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <p class="text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">OUR STORY</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 text-slate-900">About TableBite</h2>
+        <p class="mt-4 max-w-3xl text-base sm:text-lg leading-8 text-stone-600">TableBite is a college team project designed to make dine-in food ordering simple and convenient. Customers can explore the menu, add dishes to a cart, manage favourites, place a demo order, read and submit reviews, and play a mini-game while waiting for their food. This front-end prototype uses HTML, CSS, JavaScript, and Tailwind CSS.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="pb-3 border-b border-stone-300">
+          <p class="text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">THE PEOPLE BEHIND TABLEBITE</p>
+          <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Meet Our Team</h3>
+          <p class="text-sm sm:text-base text-stone-500 mt-2">Five team members, one shared idea: make ordering easier.</p>
         </div>
-        <div class="text-xs font-semibold text-emerald-800 bg-emerald-100 border border-emerald-300 px-2.5 py-1 rounded-xl">
-          Live Order Feed
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl font-extrabold">LL</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Lankada Leela Lakshitha</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Helping shape a friendly and easy-to-use experience for every customer.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-rose-100 text-rose-800 flex items-center justify-center text-xl font-extrabold">SL</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Sunkari Lakshmi Lavanya</h4>
+           
+            <p class="text-stone-700 leading-7 mt-5">Bringing a customer-first perspective to the project and its features.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center text-xl font-extrabold">AC</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Are Charan</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Contributing ideas and development to make TableBite practical and reliable.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl font-extrabold">MG</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Modalavalasa Gnaneswara</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Supporting the team in turning our shared concept into a working project.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-800 flex items-center justify-center text-xl font-extrabold">KR</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Kasa Rakesh Vinay Shankar Manikanta</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Working with the team to make the overall ordering journey smoother.</p>
+          </article>
         </div>
       </div>
 
-      <div id="kds-tickets-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-
-      <div id="kds-empty" class="hidden text-center py-16 bg-white border border-dashed border-stone-300 rounded-3xl">
-        <div class="text-3xl mb-2">🍳</div>
-        <h4 class="text-base font-bold text-stone-800">Kitchen queue is clear</h4>
-        <p class="text-xs text-stone-500 mt-1">All table tickets have been prepared and served.</p>
+      <div class="bg-white border border-stone-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <p class="text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">OUR VISION</p>
+        <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 max-w-2xl">Technology that makes dining easier.</h3>
+        <p class="text-base sm:text-lg leading-8 text-stone-600 mt-5 max-w-4xl">Our goal is to create a smooth digital restaurant experience where guests can explore dishes, save favourites, place orders, read reviews, and follow their order details with less hassle.</p>
       </div>
-    </div>
+    </section>
 
   </main>
+
+  <!-- Swiggy-style sticky cart bar: visible only when cart has items -->
+  <button id="sticky-cart-bar" onclick="toggleCart(true)" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[min(92%,680px)] bg-blue-700 hover:bg-blue-800 text-white rounded-2xl shadow-2xl px-5 py-3.5 items-center justify-between gap-4">
+    <span class="text-sm font-bold"><span id="sticky-cart-count">0</span> item(s) added</span>
+    <span class="font-bold text-sm">View Cart <span class="mx-1">·</span> <span id="sticky-cart-total">₹0</span> →</span>
+  </button>
 
   <!-- Slideout Cart Drawer -->
   <div id="cart-scrim" class="fixed inset-0 bg-stone-900/40 backdrop-blur-xs z-50 hidden transition-opacity" onclick="toggleCart(false)"></div>
@@ -339,11 +410,11 @@
         <div class="flex justify-between text-emerald-700 font-semibold"><span>Dine-In Service Fee</span><span>₹0 (Free)</span></div>
         <div class="pt-2 border-t border-stone-300 flex justify-between text-sm font-extrabold text-stone-900">
           <span>Total Payable</span>
-          <span id="calc-grandtotal" class="font-mono text-terracotta-600 text-base">₹0</span>
+          <span id="calc-grandtotal" class="font-mono text-blue-600 text-base">₹0</span>
         </div>
       </div>
 
-      <button onclick="openCheckoutModal()" class="w-full py-3.5 bg-terracotta-600 hover:bg-terracotta-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition">
+      <button onclick="openCheckoutModal()" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition">
         Confirm & Send To Kitchen →
       </button>
     </div>
@@ -363,33 +434,33 @@
       <form id="checkout-form" class="space-y-3.5 text-xs">
         <div>
           <label for="modal-table-select" class="block font-bold text-stone-700 mb-1">Confirm Table Number *</label>
-          <select id="modal-table-select" required class="w-full bg-stone-50 border border-stone-300 text-stone-900 font-bold rounded-xl p-2.5 focus:outline-none focus:ring-2 focus:ring-terracotta-500">
+          <select id="modal-table-select" required class="w-full bg-stone-50 border border-stone-300 text-stone-900 font-bold rounded-xl p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500">
           </select>
         </div>
 
         <div class="grid grid-cols-2 gap-2">
           <div>
             <label for="modal-cust-name" class="block font-bold text-stone-700 mb-1">Your Name *</label>
-            <input type="text" id="modal-cust-name" required placeholder="Guest name" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500" />
+            <input type="text" id="modal-cust-name" required placeholder="Guest name" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
           <div>
             <label for="modal-cust-phone" class="block font-bold text-stone-700 mb-1">Phone Number *</label>
-            <input type="tel" id="modal-cust-phone" required pattern="[0-9]{10}" placeholder="10 digits" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500" />
+            <input type="tel" id="modal-cust-phone" required pattern="[0-9]{10}" placeholder="10 digits" class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
         </div>
-
+        
         <div>
           <label for="modal-cust-notes" class="block font-bold text-stone-700 mb-1">Kitchen Instructions</label>
-          <input type="text" id="modal-cust-notes" placeholder="e.g. Less spicy, warm water..." class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500" />
+          <input type="text" id="modal-cust-notes" placeholder="e.g. Less spicy, warm water..." class="w-full bg-stone-50 border border-stone-300 rounded-xl p-2.5 text-stone-900 focus:outline-none focus:ring-2 focus:ring-blue-500" />
         </div>
 
         <div>
           <label class="block font-bold text-stone-700 mb-1">Payment Method</label>
           <div class="grid grid-cols-3 gap-2">
-            <label class="pay-method-pill border-2 border-terracotta-500 bg-terracotta-50 rounded-xl p-2.5 text-center cursor-pointer block">
+            <label class="pay-method-pill border-2 border-blue-500 bg-blue-50 rounded-xl p-2.5 text-center cursor-pointer block">
               <input type="radio" name="paymethod" value="Table UPI / QR" checked class="hidden" onchange="selectPaymentMethod(this)">
               <div class="font-bold text-stone-900">UPI QR</div>
-              <div class="text-[10px] text-terracotta-700">At Table</div>
+              <div class="text-[10px] text-blue-700">At Table</div>
             </label>
             <label class="pay-method-pill border border-stone-200 bg-white rounded-xl p-2.5 text-center cursor-pointer block hover:border-stone-400">
               <input type="radio" name="paymethod" value="Card Machine" class="hidden" onchange="selectPaymentMethod(this)">
@@ -406,13 +477,39 @@
 
         <div class="p-3 bg-stone-100 rounded-xl flex items-center justify-between font-medium">
           <span class="text-stone-600">Total Billed Amount:</span>
-          <span id="modal-final-amount" class="text-base font-mono font-black text-terracotta-600">₹0</span>
+          <span id="modal-final-amount" class="text-base font-mono font-black text-blue-600">₹0</span>
         </div>
 
         <button type="submit" class="w-full py-3.5 bg-stone-900 hover:bg-black text-white font-bold text-xs uppercase tracking-wider rounded-xl transition">
           Confirm Order
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- Bill displayed directly on the website after an order -->
+  <div id="bill-modal" class="fixed inset-0 z-[70] bg-stone-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="text-center mb-4">
+        <div class="text-4xl mb-2">🧾</div>
+        <h3 class="font-display font-extrabold text-2xl text-stone-900">Your Bill</h3>
+        <p class="text-sm text-stone-500">Thank you for ordering at TableBite!</p>
+      </div>
+      <div id="bill-details" class="text-sm text-stone-700"></div>
+      <button type="button" onclick="closeBillAndContinue()" class="w-full mt-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">Continue</button>
+    </div>
+  </div>
+
+  <!-- Optional game invitation shown after the bill -->
+  <div id="game-invite-modal" class="fixed inset-0 z-[60] bg-stone-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl space-y-3">
+      <div class="text-4xl">🎮</div>
+      <h3 class="font-display font-extrabold text-xl text-stone-900">Order placed successfully!</h3>
+      <p class="text-sm text-stone-600">Your food is being prepared. Would you like to play Cyber Line while you wait?</p>
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <button type="button" onclick="acceptGameInvite()" class="py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">Yes, Play</button>
+        <button type="button" onclick="skipGameInvite()" class="py-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 text-sm font-bold">Skip</button>
+      </div>
     </div>
   </div>
 
@@ -739,7 +836,6 @@
     function saveOrders() {
       localStorage.setItem("tb_orders", JSON.stringify(tableOrders));
       renderOrders();
-      renderKDS();
     }
 
     // Category Buttons
@@ -754,7 +850,7 @@
             onclick="setCategory('${cat}')"
             class="px-4 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition ${
               isActive 
-                ? 'bg-terracotta-600 text-white shadow-xs' 
+                ? 'bg-blue-600 text-white shadow-xs' 
                 : 'bg-stone-100 text-stone-600 hover:bg-stone-200 border border-stone-200'
             }"
           >
@@ -833,7 +929,7 @@
 
           <div class="p-4 flex-1 flex flex-col justify-between gap-3">
             <div>
-              <span class="text-[10px] uppercase font-bold text-terracotta-600 tracking-wider">${dish.category}</span>
+              <span class="text-[10px] uppercase font-bold text-blue-600 tracking-wider">${dish.category}</span>
               <h4 class="font-display font-bold text-stone-900 text-sm leading-snug line-clamp-1 mt-0.5">${dish.name}</h4>
               <p class="text-xs text-stone-500 mt-1 line-clamp-2 leading-relaxed">${dish.description}</p>
             </div>
@@ -958,7 +1054,33 @@
 
       if (badge) badge.textContent = totalCount;
       if (pricePill) pricePill.textContent = `₹${subtotal}`;
+
+      // Show the header Cart option only after at least one item is added.
+      const headerCartButton = document.getElementById("cart-header-button");
+      if (headerCartButton) {
+        if (totalCount > 0) {
+          headerCartButton.classList.remove("hidden");
+          headerCartButton.classList.add("flex");
+        } else {
+          headerCartButton.classList.add("hidden");
+          headerCartButton.classList.remove("flex");
+        }
+      }
       if (subtitle) subtitle.textContent = `${totalCount} item${totalCount === 1 ? '' : 's'} queued`;
+      const stickyBar = document.getElementById("sticky-cart-bar");
+      const stickyCount = document.getElementById("sticky-cart-count");
+      const stickyTotal = document.getElementById("sticky-cart-total");
+      if (stickyCount) stickyCount.textContent = totalCount;
+      if (stickyTotal) stickyTotal.textContent = `₹${grandTotal}`;
+      if (stickyBar) {
+        if (totalCount > 0) {
+          stickyBar.classList.remove("hidden");
+          stickyBar.classList.add("flex");
+        } else {
+          stickyBar.classList.add("hidden");
+          stickyBar.classList.remove("flex");
+        }
+      }
 
       if (totalCount === 0) {
         if (listContainer) listContainer.innerHTML = "";
@@ -1087,7 +1209,7 @@
       });
       const current = radio.closest("label");
       if (current) {
-        current.className = "pay-method-pill border-2 border-terracotta-500 bg-terracotta-50 rounded-xl p-2.5 text-center cursor-pointer block";
+        current.className = "pay-method-pill border-2 border-blue-500 bg-blue-50 rounded-xl p-2.5 text-center cursor-pointer block";
       }
     }
 
@@ -1141,16 +1263,69 @@
       
       document.getElementById("checkout-form").reset();
 
-      // Automatically open the Cyber Line waiting game after the order is placed.
-      // The game will remain open until the order is marked as Served.
-      setTimeout(() => {
-        openCyberGame();
-        setTimeout(() => {
-          if (document.getElementById("cyber-modal")?.classList.contains("flex")) {
-            startCyberGame();
-          }
-        }, 250);
-      }, 700);
+      // Show the bill on the website. No SMS or WhatsApp app is opened.
+      showBill(orderTicket);
+    }
+
+    function escapeBillText(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+      })[character]);
+    }
+
+    function showBill(order) {
+      const details = document.getElementById("bill-details");
+      const itemRows = order.items.map(item => `
+        <div class="flex justify-between gap-4 py-2 border-b border-stone-100">
+          <span>${escapeBillText(item.name)} × ${item.count}</span>
+          <span class="font-mono whitespace-nowrap">₹${(item.price * item.count).toFixed(2)}</span>
+        </div>
+      `).join("");
+
+      details.innerHTML = `
+        <div class="rounded-xl bg-stone-50 p-3 mb-4 space-y-1">
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Order ID</span><strong>${escapeBillText(order.id)}</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Customer</span><strong>${escapeBillText(order.guest)}</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Table</span><strong>${escapeBillText(order.table)}</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Time</span><strong>${escapeBillText(order.timestamp)}</strong></div>
+        </div>
+        <h4 class="font-bold text-stone-900 mb-1">Items Ordered</h4>
+        ${itemRows || '<p class="py-2">No items listed.</p>'}
+        <div class="flex justify-between gap-3 pt-3 text-base font-extrabold text-stone-900"><span>Total (including GST)</span><span class="font-mono">₹${Number(order.total).toFixed(2)}</span></div>
+        <div class="flex justify-between gap-3 pt-2"><span class="text-stone-500">Payment method</span><strong class="text-right">${escapeBillText(order.payMode)}</strong></div>
+        ${order.notes ? `<div class="pt-2"><span class="text-stone-500">Instructions:</span> ${escapeBillText(order.notes)}</div>` : ""}
+        <p class="text-xs text-stone-500 mt-4 text-center">Your order has been received. Thank you!</p>
+      `;
+
+      const modal = document.getElementById("bill-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeBillAndContinue() {
+      const bill = document.getElementById("bill-modal");
+      bill.classList.add("hidden");
+      bill.classList.remove("flex");
+
+      // Offer the waiting game only after the customer has viewed the bill.
+      const invite = document.getElementById("game-invite-modal");
+      invite.classList.remove("hidden");
+      invite.classList.add("flex");
+    }
+
+    function acceptGameInvite() {
+      const invite = document.getElementById("game-invite-modal");
+      invite.classList.add("hidden");
+      invite.classList.remove("flex");
+      // Open the game on its start screen; the customer chooses when to start.
+      openCyberGame();
+    }
+
+    function skipGameInvite() {
+      const invite = document.getElementById("game-invite-modal");
+      invite.classList.add("hidden");
+      invite.classList.remove("flex");
+      showToast("Enjoy your meal! Your order is being prepared.");
     }
 
     // Orders Views
@@ -1202,70 +1377,9 @@
 
             <div class="pt-3 border-t border-stone-100 flex items-center justify-between text-xs">
               <span class="text-stone-500">Method: ${order.payMode}</span>
-              <span class="text-stone-700">Total Billed: <strong class="font-mono text-terracotta-600 text-sm">₹${order.total}</strong></span>
+              <span class="text-stone-700">Total Billed: <strong class="font-mono text-blue-600 text-sm">₹${order.total}</strong></span>
             </div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    // Kitchen Display System (KDS)
-    function renderKDS() {
-      const container = document.getElementById("kds-tickets-container");
-      const empty = document.getElementById("kds-empty");
-      if (!container) return;
-
-      const pending = tableOrders.filter(o => o.status !== "Served");
-
-      if (pending.length === 0) {
-        container.innerHTML = "";
-        if (empty) empty.classList.remove("hidden");
-        return;
-      }
-
-      if (empty) empty.classList.add("hidden");
-
-      container.innerHTML = pending.map(ord => {
-        return `
-          <div class="bg-white border border-stone-200 rounded-3xl p-5 shadow-xs space-y-3 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between pb-2 border-b border-stone-100">
-                <div>
-                  <span class="font-display font-black text-terracotta-600 text-base">${ord.table}</span>
-                  <span class="text-stone-400 text-xs ml-1">#${ord.id}</span>
-                </div>
-                <span class="font-mono text-xs text-stone-400">${ord.timestamp}</span>
-              </div>
-
-              <div class="py-2 text-[11px] text-stone-500">
-                <div>Guest: <strong class="text-stone-800">${ord.guest}</strong> (${ord.phone})</div>
-                ${ord.notes ? `<div class="mt-1 p-2 bg-amber-50 border border-amber-200 text-amber-800 rounded-xl">⚠️ ${ord.notes}</div>` : ''}
-              </div>
-
-              <div class="space-y-1.5 my-2">
-                ${ord.items.map(it => `
-                  <div class="flex justify-between items-center text-xs bg-stone-50 p-2 rounded-xl border border-stone-100">
-                    <span class="font-semibold text-stone-800">${it.name}</span>
-                    <span class="font-mono font-bold text-stone-900 bg-white px-2 py-0.5 rounded-lg border border-stone-200">×${it.count}</span>
-                  </div>
-                `).join("")}
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-stone-100 grid grid-cols-2 gap-2 text-xs font-bold">
-              <button 
-                onclick="updateOrderStatus('${ord.id}', 'Cooking')" 
-                class="py-2 rounded-xl border border-sky-300 text-sky-800 hover:bg-sky-50 transition ${ord.status === 'Cooking' ? 'bg-sky-50 ring-1 ring-sky-400' : ''}"
-              >
-                Cooking
-              </button>
-              <button 
-                onclick="updateOrderStatus('${ord.id}', 'Served')" 
-                class="py-2 rounded-xl bg-stone-900 hover:bg-black text-white transition"
-              >
-                Served ✓
-              </button>
-            </div>
+            ${order.status !== "Served" ? `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button onclick="openCyberGame()" class="w-full py-2.5 rounded-xl bg-cyan-100 hover:bg-cyan-200 border border-cyan-300 text-cyan-900 text-xs font-bold">⚡ Play Waiting Game</button><button onclick="updateOrderStatus('${order.id}', 'Served')" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold">Food Arrived — Stop Game</button></div>` : `<p class="text-xs text-emerald-700 font-semibold">✓ Food marked as arrived</p>`}
           </div>
         `;
       }).join("");
@@ -1288,7 +1402,7 @@
 
     // Tab Switching
     function switchTab(tab) {
-      const tabs = ['menu', 'favs', 'orders', 'kds'];
+      const tabs = ['menu', 'favs', 'orders', 'reviews', 'about'];
       tabs.forEach(t => {
         const el = document.getElementById(`view-${t}`);
         const btn = document.getElementById(`btn-tab-${t}`);
@@ -1299,11 +1413,11 @@
       const activeView = document.getElementById(`view-${tab}`);
       const activeBtn = document.getElementById(`btn-tab-${tab}`);
       if (activeView) activeView.classList.remove("hidden");
-      if (activeBtn) activeBtn.className = "px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-terracotta-600 shadow-xs transition";
+      if (activeBtn) activeBtn.className = "px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-blue-600 shadow-xs transition";
 
       if (tab === 'favs') renderFavorites();
       if (tab === 'orders') renderOrders();
-      if (tab === 'kds') renderKDS();
+      if (tab === 'reviews') renderSubmittedReviews();
     }
 
     // Toast Alert
@@ -1348,6 +1462,13 @@
     let bestScore = 0;
 
     function openCyberGame() {
+      // Customers can access the waiting game only after placing an order
+      // and only while at least one order has not been marked as served.
+      const eligibleOrder = tableOrders.some(order => order.status !== "Served");
+      if (!eligibleOrder) {
+        showToast("Place an order first to unlock the waiting game");
+        return;
+      }
       const modal = document.getElementById("cyber-modal");
       modal.classList.remove("hidden");
       modal.classList.add("flex");
@@ -1436,6 +1557,11 @@
     }
 
     function startCyberGame() {
+      if (!tableOrders.some(order => order.status !== "Served")) {
+        showToast("The waiting game is available only after placing an order");
+        closeCyberGame();
+        return;
+      }
       resetCyberWorld();
       cyberRunning = true;
       document.getElementById("cyber-start-overlay").classList.add("hidden");
@@ -1744,6 +1870,31 @@
       }
     });
 
+    // Customer-submitted reviews are stored locally in this browser.
+    function getSubmittedReviews() {
+      try { return JSON.parse(localStorage.getItem("tb_reviews") || "[]"); }
+      catch (error) { return []; }
+    }
+
+    function renderSubmittedReviews() {
+      const container = document.getElementById("submitted-reviews");
+      if (!container) return;
+      const reviews = getSubmittedReviews();
+      container.innerHTML = reviews.map(review => `
+        <article class="border border-stone-200 bg-stone-50 rounded-2xl p-4">
+          <div class="text-amber-500">${"★".repeat(review.rating)}${"☆".repeat(5-review.rating)}</div>
+          <h4 class="font-bold text-stone-900 mt-1">${escapeReviewText(review.name)}</h4>
+          <p class="text-sm text-stone-600 mt-2">${escapeReviewText(review.message)}</p>
+        </article>
+      `).join("");
+    }
+
+    function escapeReviewText(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[char]));
+    }
+
     // DOM Ready listener
     document.addEventListener("DOMContentLoaded", () => {
       initTables();
@@ -1753,7 +1904,6 @@
       updateCartUI();
       updateFavBadge();
       renderOrders();
-      renderKDS();
 
       // Search input binding
       const searchInput = document.getElementById("dish-search-input");
@@ -1776,6 +1926,26 @@
         sorter.addEventListener("change", (e) => {
           sortOrder = e.target.value;
           renderMenu();
+        });
+      }
+
+      // Customer review form binding
+      const reviewForm = document.getElementById("review-form");
+      if (reviewForm) {
+        reviewForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const review = {
+            name: document.getElementById("review-name").value.trim(),
+            rating: Number(document.getElementById("review-rating").value),
+            message: document.getElementById("review-message").value.trim()
+          };
+          if (!review.name || !review.message) return;
+          const reviews = getSubmittedReviews();
+          reviews.unshift(review);
+          localStorage.setItem("tb_reviews", JSON.stringify(reviews));
+          reviewForm.reset();
+          renderSubmittedReviews();
+          showToast("Thanks for sharing your review!");
         });
       }
 
