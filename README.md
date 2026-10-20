@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TableBite Restaurant | Fresh Table Dine-In</title>
+  <title>TasteBite Restaurant | Food Ordering & Mini Game</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,42 @@
       }
     }
   </script>
+
+  <style>
+    .project-shell{min-height:100vh;background:#f8f6f0;color:#201449;padding:34px clamp(18px,4vw,64px) 0;font-family:'Plus Jakarta Sans',sans-serif}
+    .project-top{max-width:1320px;margin:auto;display:grid;grid-template-columns: minmax(280px, .95fr) minmax(320px,1.05fr);gap:clamp(25px,4vw,60px);align-items:center}
+    .project-photo{height:310px;position:relative;border-radius:5px 100px 5px 5px;overflow:hidden;border:2px solid #dfc47c;box-shadow:0 10px 28px #21144918}
+    .project-photo img{width:100%;height:100%;object-fit:cover}
+    .photo-label{position:absolute;bottom:0;left:0;background:#211449dc;color:white;padding:10px 16px;font-size:10px;letter-spacing:2px;font-weight:800}
+    .project-intro{text-align:center}
+    .eyebrow{font-size:11px;letter-spacing:3px;font-weight:800;color:#a47b25}
+    .project-intro h1{font-size:clamp(48px,6.5vw,82px);line-height:1;font-weight:900;letter-spacing:-4px;margin:10px 0;color:#402080}
+    .project-intro h1 span{color:#c99b3d}
+    .project-subtitle{border-radius:30px;background:#eee8fb;border:1px solid #e0d5f5;padding:12px 16px;font-weight:800;margin:18px auto;max-width:430px}
+    .project-description{font-size:13px;line-height:1.8;color:#696273;max-width:470px;margin:0 auto}
+    .project-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+    .project-actions button{display:flex;align-items:center;gap:12px;text-align:left;padding:12px 17px;border-radius:14px;min-width:185px;box-shadow:0 5px 15px #21144918;transition:transform .2s}
+    .project-actions button:hover{transform:translateY(-2px)}
+    .project-actions button>span:first-child{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;font-size:20px}
+    .project-actions b,.project-actions small{display:block}.project-actions b{font-size:13px}.project-actions small{font-size:10px;margin-top:3px}
+    .abstract-btn{background:#3d197d;color:white;border:1px solid #3d197d}.abstract-btn>span:first-child{background:#ffffff24}
+    .website-btn{background:white;color:#28134f;border:1px solid #c69b3f}.website-btn>span:first-child{background:#c99b3d;color:white}
+    .project-info-grid{max-width:1320px;margin:24px auto 18px;display:grid;grid-template-columns:1.15fr 1fr 1fr;gap:14px}
+    .project-info-card{background:#fff;border:1px solid #e8e2ef;border-radius:18px;padding:20px;min-height:150px;box-shadow:0 7px 20px #21144908}
+    .project-info-card h3{font-size:14px;font-weight:900;border-bottom:2px solid #d4b35e;padding-bottom:12px;margin:0 0 13px}
+    .project-info-card h4{font-size:15px;font-weight:800;margin:17px 0 5px}.project-info-card p{font-size:12px;color:#6e6879;line-height:1.6}
+    .project-info-card ol{list-style:none;padding:0;margin:0;counter-reset:members}.project-info-card li{counter-increment:members;display:flex;gap:8px;align-items:center;justify-content:space-between;font-size:10px;font-weight:700;margin:9px 0}.project-info-card li:before{content:counter(members);background:#432080;color:#fff;border-radius:50%;width:17px;height:17px;display:grid;place-items:center;flex-shrink:0}.project-info-card li span{flex:1}.project-info-card li small{color:#8c829b;font-size:9px;border-left:1px solid #d4b35e;padding-left:7px}
+    .project-footer-line{height:9px;background:linear-gradient(90deg,#3d197d 0 55%,#c99b3d 55%);max-width:1320px;margin:0 auto}
+    .abstract-screen{min-height:100vh;background:#eef0ff;padding:22px 16px 50px;font-family:'Times New Roman',serif;color:#111}
+    .back-home{display:block;max-width:760px;margin:0 auto 14px;background:#402080;color:white;border-radius:8px;padding:10px 16px;font:600 13px 'Plus Jakarta Sans',sans-serif}
+    .abstract-paper{max-width:760px;min-height:720px;background:#fff;border:1px solid #333;outline:1px solid #333;outline-offset:-6px;margin:auto;padding:42px clamp(25px,7vw,70px);box-shadow:0 4px 20px #1111}
+    .abstract-paper h2{text-align:center;font-size:16px;margin:0 0 18px;font-weight:bold}
+    .abstract-paper>p{font-size:13px;line-height:1.75;text-align:justify;text-indent:28px;margin:0 0 12px}
+    .abstract-signatures{text-align:right;margin-top:30px;font-size:11px;line-height:1.6}
+    .abstract-hod{margin-top:36px;font-size:13px;line-height:1.7}
+    @media(max-width:760px){.project-top{grid-template-columns:1fr}.project-photo{height:230px;border-radius:5px 65px 5px 5px}.project-info-grid{grid-template-columns:1fr}.project-intro h1{letter-spacing:-2px}.project-shell{padding-top:22px}.project-info-card li{font-size:11px}.abstract-paper{padding:36px 25px;min-height:0}}
+  </style>
+
   <style>
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -54,6 +90,68 @@
 </head>
 <body class="bg-[#f4efe6] text-bistro-800 font-sans min-h-screen flex flex-col selection:bg-blue-500 selection:text-white">
 
+
+  <!-- Project landing page -->
+  <section id="project-home" class="project-shell">
+    <div class="project-top">
+      <div class="project-photo">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1100&q=85" alt="Delicious restaurant food">
+        <span class="photo-label">TASTEBITE • DINE-IN EXPERIENCE</span>
+      </div>
+      <div class="project-intro">
+        <p class="eyebrow">RAGHU ENGINEERING COLLEGE</p>
+        <h1>TASTE<span>BITE</span></h1>
+        <div class="project-subtitle">Restaurant and Food Ordering Website</div>
+        <p class="project-description">A web-based mini project for browsing a restaurant menu, adding items to a cart, and placing dine-in orders with ease.</p>
+        <div class="project-actions">
+          <button class="abstract-btn" onclick="showProjectPage('abstract')"><span>▤</span><span><b>Abstract</b><small>Read about the project</small></span></button>
+          <button class="website-btn" onclick="showProjectPage('website')"><span>◎</span><span><b>Website Link</b><small>Open TasteBite</small></span></button>
+        </div>
+      </div>
+    </div>
+    <div class="project-info-grid">
+      <article class="project-info-card">
+        <h3>♧ &nbsp; Project Members</h3>
+        <ol>
+          <li><span>Lankada Leela Lakshitha</span><small>24981A42A4</small></li>
+          <li><span>Sunkari Lakshmi Lavanya</span><small>24981A420A</small></li>
+          <li><span>Are Charan</span><small>24981A421A</small></li>
+          <li><span>Modalavalasa Gnaneswara</span><small>24981A422J</small></li>
+          <li><span>Kasa Rakesh Vinay Shankar Manikanta</span><small>24981A425C</small></li>
+        </ol>
+      </article>
+      <article class="project-info-card">
+        <h3>♙ &nbsp; Project Guide</h3>
+        <h4>Mr. K. Sandeep Kumar</h4><p>Assistant Professor<br>Department of CSE (AI &amp; ML)</p>
+      </article>
+      <article class="project-info-card">
+        <h3>♧ &nbsp; HoD CSE (AI &amp; ML)</h3>
+        <h4>Dr. G. Sridevi</h4><p>Professor &amp; Head<br>Department of CSE (AI &amp; ML)</p>
+      </article>
+    </div>
+    <div class="project-footer-line"></div>
+  </section>
+
+  <!-- Abstract page -->
+  <section id="project-abstract" class="abstract-screen hidden">
+    <button class="back-home" onclick="showProjectPage('home')">← Back to Home</button>
+    <article class="abstract-paper">
+      <h2>ABSTRACT</h2>
+      <p>The Restaurant and Food Ordering Website is a web-based platform designed to make browsing a restaurant menu and placing dine-in orders simple and convenient. Customers can explore food items by category, view item details and prices, add selected dishes to a cart, adjust quantities, and review the bill before confirming an order. The website also includes favourites, customer reviews, an about section, and an optional mini-game that customers can choose to play after placing an order.</p>
+      <p>The project is developed using HTML, CSS, JavaScript, and Tailwind CSS. HTML structures the webpages, CSS and Tailwind CSS are used to create a responsive and user-friendly interface, and JavaScript manages menu filtering, cart operations, bill calculation, order confirmation, reviews, and the mini-game. This version is a front-end prototype and stores demo information in the user's browser; it does not connect to a live restaurant database or kitchen system.</p>
+      <p>The main aim of the project is to provide a simple digital interface for customers ordering food while seated inside the restaurant. By organizing menu items and displaying the order total clearly, the system demonstrates how a website can make the dine-in ordering process more convenient and engaging.</p>
+      <div class="abstract-signatures">
+        <p>LANKADA LEELA LAKSHITHA – 24981A42A4<br>SUNKARI LAKSHMI LAVANYA – 24981A420A<br>ARE CHARAN – 24981A421A<br>MODAVALAVASA GNANESWARA – 24981A422J<br>KASA RAKESH VINAY SHANKAR MANIKANTA – 24981A425C</p>
+      </div>
+      <div class="abstract-hod">Dr. G. Sridevi<br>Professor &amp; Head<br>CSE (AI &amp; ML)</div>
+    </article>
+  </section>
+
+  <div id="website-app" class="hidden">
+  <!-- Back to project landing page -->
+  <div class="bg-[#eef0ff] px-4 py-3 border-b border-stone-200">
+    <button type="button" class="back-home" onclick="showProjectPage('home')">← Back to Home</button>
+  </div>
   <!-- Top Navigation Header -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between gap-4">
@@ -90,17 +188,17 @@
         <button onclick="switchTab('orders')" id="btn-tab-orders" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
           Table Orders
         </button>
-        <button onclick="switchTab('kds')" id="btn-tab-kds" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-700 hover:text-stone-900 border border-dashed border-stone-300 transition">
-          Staff KDS
+        <button onclick="switchTab('reviews')" id="btn-tab-reviews" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
+          Reviews
         </button>
-        <button onclick="openCyberGame()" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-cyan-900 bg-cyan-100 hover:bg-cyan-200 border border-cyan-300 transition flex items-center gap-1">
-          <span>⚡</span> Cyber Line
+        <button onclick="switchTab('about')" id="btn-tab-about" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-stone-600 hover:text-stone-900 transition">
+          About Us
         </button>
       </nav>
 
       <!-- Cart Drawer Trigger & Mobile Hamburger -->
       <div class="flex items-center gap-2.5">
-        <button onclick="toggleCart(true)" class="relative flex items-center gap-2.5 px-4 py-2.5 bg-bistro-900 hover:bg-black text-white text-xs font-bold rounded-2xl shadow-sm transition active:scale-95">
+        <button id="cart-header-button" onclick="toggleCart(true)" class="hidden relative items-center gap-2.5 px-4 py-2.5 bg-bistro-900 hover:bg-black text-white text-xs font-bold rounded-2xl shadow-sm transition active:scale-95">
           <span class="text-sm">🛒</span>
           <span>Cart</span>
           <span id="cart-item-badge" class="bg-blue-500 text-white text-[11px] px-2 py-0.2 rounded-full font-bold">0</span>
@@ -124,8 +222,8 @@
         <button onclick="switchTab('menu'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Menu</button>
         <button onclick="switchTab('favs'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Saved</button>
         <button onclick="switchTab('orders'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Orders</button>
-        <button onclick="switchTab('kds'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">KDS</button>
-        <button onclick="openCyberGame(); toggleMobileNav()" class="py-2 rounded-xl bg-cyan-100 text-cyan-900 font-extrabold">⚡ Play</button>
+        <button onclick="switchTab('reviews'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">Reviews</button>
+        <button onclick="switchTab('about'); toggleMobileNav()" class="py-2 rounded-xl bg-stone-100 text-stone-800">About</button>
       </div>
     </div>
   </header>
@@ -257,13 +355,11 @@
           <p class="text-xs text-stone-500">Real-time status updates directly from the TableBite pass.</p>
         </div>
         <div class="flex items-center gap-3">
-          <button onclick="openCyberGame()" class="px-3 py-1.5 bg-cyan-100 hover:bg-cyan-200 border border-cyan-300 rounded-xl text-xs font-bold text-cyan-900 flex items-center gap-1 transition">
-            <span>⚡</span> Play Cyber Line
-          </button>
           <button onclick="switchTab('menu')" class="text-xs font-bold text-blue-600 hover:underline">
             + Add More Items
           </button>
         </div>
+      </div>
 
       <div id="table-orders-container" class="space-y-3"></div>
 
@@ -277,30 +373,103 @@
       </div>
     </div>
 
-    <!-- 4. Kitchen Display System (KDS) View -->
-    <div id="view-kds" class="hidden space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-stone-300">
-        <div>
-          <h2 class="text-xl font-display font-bold text-stone-900 flex items-center gap-2">
-            TableBite Staff KDS <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-          </h2>
-          <p class="text-xs text-stone-500">Ticket management for line cooks and kitchen staff.</p>
+    <!-- Customer Reviews View -->
+    <section id="view-reviews" class="hidden space-y-5">
+      <div class="pb-3 border-b border-stone-300">
+        <h2 class="text-2xl font-display font-extrabold text-stone-900">Customer Reviews</h2>
+        <p class="text-sm text-stone-500 mt-1">Your feedback helps TableBite improve every meal.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <article class="bg-white border border-stone-200 rounded-3xl p-5">
+          <div class="text-amber-500 text-lg">★★★★★</div><h3 class="font-bold mt-2">Priya K.</h3>
+          <p class="text-sm text-stone-600 mt-2">“The menu was easy to browse and ordering was simple. I liked seeing the total before confirming.”</p>
+        </article>
+        <article class="bg-white border border-stone-200 rounded-3xl p-5">
+          <div class="text-amber-500 text-lg">★★★★★</div><h3 class="font-bold mt-2">Rahul M.</h3>
+          <p class="text-sm text-stone-600 mt-2">“Good variety and clear prices. The waiting game is a fun idea while waiting for food.”</p>
+        </article>
+        <article class="bg-white border border-stone-200 rounded-3xl p-5">
+          <div class="text-amber-500 text-lg">★★★★☆</div><h3 class="font-bold mt-2">Sneha R.</h3>
+          <p class="text-sm text-stone-600 mt-2">“The favorites and cart quantity controls make it convenient to choose food.”</p>
+        </article>
+      </div>
+      <div class="bg-white border border-stone-200 rounded-3xl p-5 sm:p-6">
+        <h3 class="font-display font-bold text-lg text-stone-900">Write a Review</h3>
+        <p class="text-xs text-stone-500 mt-1">Demo reviews are stored in this browser only.</p>
+        <form id="review-form" class="mt-4 grid gap-3">
+          <input id="review-name" required maxlength="50" placeholder="Your name" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-sm">
+          <select id="review-rating" class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-sm">
+            <option value="5">★★★★★ - Excellent</option><option value="4">★★★★☆ - Very good</option><option value="3">★★★☆☆ - Good</option><option value="2">★★☆☆☆ - Fair</option><option value="1">★☆☆☆☆ - Needs improvement</option>
+          </select>
+          <textarea id="review-message" required maxlength="300" rows="3" placeholder="Share your experience..." class="w-full bg-stone-50 border border-stone-200 rounded-xl px-3 py-2.5 text-sm"></textarea>
+          <button class="justify-self-start px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-sm font-bold" type="submit">Submit Review</button>
+        </form>
+        <div id="submitted-reviews" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5"></div>
+      </div>
+    </section>
+
+    <!-- About Us View -->
+    <section id="view-about" class="hidden space-y-6">
+      <div class="bg-white border border-stone-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <p class="text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">OUR STORY</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold mt-3 text-slate-900">About TableBite</h2>
+        <p class="mt-4 max-w-3xl text-base sm:text-lg leading-8 text-stone-600">TableBite is a college team project designed to make dine-in food ordering simple and convenient. Customers can explore the menu, add dishes to a cart, manage favourites, place a demo order, read and submit reviews, and play a mini-game while waiting for their food. This front-end prototype uses HTML, CSS, JavaScript, and Tailwind CSS.</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="pb-3 border-b border-stone-300">
+          <p class="text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">THE PEOPLE BEHIND TABLEBITE</p>
+          <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">Meet Our Team</h3>
+          <p class="text-sm sm:text-base text-stone-500 mt-2">Five team members, one shared idea: make ordering easier.</p>
         </div>
-        <div class="text-xs font-semibold text-emerald-800 bg-emerald-100 border border-emerald-300 px-2.5 py-1 rounded-xl">
-          Live Order Feed
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl font-extrabold">LL</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Lankada Leela Lakshitha</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Helping shape a friendly and easy-to-use experience for every customer.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-rose-100 text-rose-800 flex items-center justify-center text-xl font-extrabold">SL</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Sunkari Lakshmi Lavanya</h4>
+           
+            <p class="text-stone-700 leading-7 mt-5">Bringing a customer-first perspective to the project and its features.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-blue-100 text-blue-800 flex items-center justify-center text-xl font-extrabold">AC</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Are Charan</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Contributing ideas and development to make TableBite practical and reliable.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-xl font-extrabold">MG</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Modalavalasa Gnaneswara</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Supporting the team in turning our shared concept into a working project.</p>
+          </article>
+          <article class="bg-white border border-stone-200 rounded-[2rem] p-6 sm:p-7 shadow-sm">
+            <div class="w-16 h-16 rounded-2xl bg-violet-100 text-violet-800 flex items-center justify-center text-xl font-extrabold">KR</div>
+            <h4 class="font-display text-xl font-extrabold text-slate-900 mt-6">Kasa Rakesh Vinay Shankar Manikanta</h4>
+            
+            <p class="text-stone-700 leading-7 mt-5">Working with the team to make the overall ordering journey smoother.</p>
+          </article>
         </div>
       </div>
 
-      <div id="kds-tickets-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-
-      <div id="kds-empty" class="hidden text-center py-16 bg-white border border-dashed border-stone-300 rounded-3xl">
-        <div class="text-3xl mb-2">🍳</div>
-        <h4 class="text-base font-bold text-stone-800">Kitchen queue is clear</h4>
-        <p class="text-xs text-stone-500 mt-1">All table tickets have been prepared and served.</p>
+      <div class="bg-white border border-stone-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+        <p class="text-xs uppercase tracking-[0.2em] font-extrabold text-blue-600">OUR VISION</p>
+        <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3 max-w-2xl">Technology that makes dining easier.</h3>
+        <p class="text-base sm:text-lg leading-8 text-stone-600 mt-5 max-w-4xl">Our goal is to create a smooth digital restaurant experience where guests can explore dishes, save favourites, place orders, read reviews, and follow their order details with less hassle.</p>
       </div>
-    </div>
+    </section>
 
   </main>
+
+  <!-- Swiggy-style sticky cart bar: visible only when cart has items -->
+  <button id="sticky-cart-bar" onclick="toggleCart(true)" class="hidden fixed bottom-4 left-1/2 -translate-x-1/2 z-40 w-[min(92%,680px)] bg-blue-700 hover:bg-blue-800 text-white rounded-2xl shadow-2xl px-5 py-3.5 items-center justify-between gap-4">
+    <span class="text-sm font-bold"><span id="sticky-cart-count">0</span> item(s) added</span>
+    <span class="font-bold text-sm">View Cart <span class="mx-1">·</span> <span id="sticky-cart-total">₹0</span> →</span>
+  </button>
 
   <!-- Slideout Cart Drawer -->
   <div id="cart-scrim" class="fixed inset-0 bg-stone-900/40 backdrop-blur-xs z-50 hidden transition-opacity" onclick="toggleCart(false)"></div>
@@ -343,7 +512,7 @@
         </div>
       </div>
 
-      <button onclick="openCheckoutModal()" class="w-full py-3.5 bg-terracotta-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition">
+      <button onclick="openCheckoutModal()" class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition">
         Confirm & Send To Kitchen →
       </button>
     </div>
@@ -413,6 +582,32 @@
           Confirm Order
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- Bill displayed directly on the website after an order -->
+  <div id="bill-modal" class="fixed inset-0 z-[70] bg-stone-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+      <div class="text-center mb-4">
+        <div class="text-4xl mb-2">🧾</div>
+        <h3 class="font-display font-extrabold text-2xl text-stone-900">Your Bill</h3>
+        <p class="text-sm text-stone-500">Thank you for ordering at TableBite!</p>
+      </div>
+      <div id="bill-details" class="text-sm text-stone-700"></div>
+      <button type="button" onclick="closeBillAndContinue()" class="w-full mt-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">Continue</button>
+    </div>
+  </div>
+
+  <!-- Optional game invitation shown after the bill -->
+  <div id="game-invite-modal" class="fixed inset-0 z-[60] bg-stone-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 text-center shadow-2xl space-y-3">
+      <div class="text-4xl">🎮</div>
+      <h3 class="font-display font-extrabold text-xl text-stone-900">Order placed successfully!</h3>
+      <p class="text-sm text-stone-600">Your food is being prepared. Would you like to play Cyber Line while you wait?</p>
+      <div class="grid grid-cols-2 gap-3 pt-2">
+        <button type="button" onclick="acceptGameInvite()" class="py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">Yes, Play</button>
+        <button type="button" onclick="skipGameInvite()" class="py-3 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 text-sm font-bold">Skip</button>
+      </div>
     </div>
   </div>
 
@@ -508,6 +703,21 @@
       </div>
     </div>
   </footer>
+
+  </div>
+
+
+  <script>
+    function showProjectPage(page) {
+      const home = document.getElementById('project-home');
+      const abstractPage = document.getElementById('project-abstract');
+      const website = document.getElementById('website-app');
+      home.classList.toggle('hidden', page !== 'home');
+      abstractPage.classList.toggle('hidden', page !== 'abstract');
+      website.classList.toggle('hidden', page !== 'website');
+      window.scrollTo({top: 0, behavior: 'instant'});
+    }
+  </script>
 
   <script>
     // Food items catalogue with reliable direct image links
@@ -739,7 +949,6 @@
     function saveOrders() {
       localStorage.setItem("tb_orders", JSON.stringify(tableOrders));
       renderOrders();
-      renderKDS();
     }
 
     // Category Buttons
@@ -958,7 +1167,33 @@
 
       if (badge) badge.textContent = totalCount;
       if (pricePill) pricePill.textContent = `₹${subtotal}`;
+
+      // Show the header Cart option only after at least one item is added.
+      const headerCartButton = document.getElementById("cart-header-button");
+      if (headerCartButton) {
+        if (totalCount > 0) {
+          headerCartButton.classList.remove("hidden");
+          headerCartButton.classList.add("flex");
+        } else {
+          headerCartButton.classList.add("hidden");
+          headerCartButton.classList.remove("flex");
+        }
+      }
       if (subtitle) subtitle.textContent = `${totalCount} item${totalCount === 1 ? '' : 's'} queued`;
+      const stickyBar = document.getElementById("sticky-cart-bar");
+      const stickyCount = document.getElementById("sticky-cart-count");
+      const stickyTotal = document.getElementById("sticky-cart-total");
+      if (stickyCount) stickyCount.textContent = totalCount;
+      if (stickyTotal) stickyTotal.textContent = `₹${grandTotal}`;
+      if (stickyBar) {
+        if (totalCount > 0) {
+          stickyBar.classList.remove("hidden");
+          stickyBar.classList.add("flex");
+        } else {
+          stickyBar.classList.add("hidden");
+          stickyBar.classList.remove("flex");
+        }
+      }
 
       if (totalCount === 0) {
         if (listContainer) listContainer.innerHTML = "";
@@ -1141,16 +1376,69 @@
       
       document.getElementById("checkout-form").reset();
 
-      // Automatically open the Cyber Line waiting game after the order is placed.
-      // The game will remain open until the order is marked as Served.
-      setTimeout(() => {
-        openCyberGame();
-        setTimeout(() => {
-          if (document.getElementById("cyber-modal")?.classList.contains("flex")) {
-            startCyberGame();
-          }
-        }, 250);
-      }, 700);
+      // Show the bill on the website. No SMS or WhatsApp app is opened.
+      showBill(orderTicket);
+    }
+
+    function escapeBillText(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;"
+      })[character]);
+    }
+
+    function showBill(order) {
+      const details = document.getElementById("bill-details");
+      const itemRows = order.items.map(item => `
+        <div class="flex justify-between gap-4 py-2 border-b border-stone-100">
+          <span>${escapeBillText(item.name)} × ${item.count}</span>
+          <span class="font-mono whitespace-nowrap">₹${(item.price * item.count).toFixed(2)}</span>
+        </div>
+      `).join("");
+
+      details.innerHTML = `
+        <div class="rounded-xl bg-stone-50 p-3 mb-4 space-y-1">
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Order ID</span><strong>${escapeBillText(order.id)}</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Customer</span><strong>${escapeBillText(order.guest)}</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Table</span><strong>${escapeBillText(order.table)}</strong></div>
+          <div class="flex justify-between gap-3"><span class="text-stone-500">Time</span><strong>${escapeBillText(order.timestamp)}</strong></div>
+        </div>
+        <h4 class="font-bold text-stone-900 mb-1">Items Ordered</h4>
+        ${itemRows || '<p class="py-2">No items listed.</p>'}
+        <div class="flex justify-between gap-3 pt-3 text-base font-extrabold text-stone-900"><span>Total (including GST)</span><span class="font-mono">₹${Number(order.total).toFixed(2)}</span></div>
+        <div class="flex justify-between gap-3 pt-2"><span class="text-stone-500">Payment method</span><strong class="text-right">${escapeBillText(order.payMode)}</strong></div>
+        ${order.notes ? `<div class="pt-2"><span class="text-stone-500">Instructions:</span> ${escapeBillText(order.notes)}</div>` : ""}
+        <p class="text-xs text-stone-500 mt-4 text-center">Your order has been received. Thank you!</p>
+      `;
+
+      const modal = document.getElementById("bill-modal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    }
+
+    function closeBillAndContinue() {
+      const bill = document.getElementById("bill-modal");
+      bill.classList.add("hidden");
+      bill.classList.remove("flex");
+
+      // Offer the waiting game only after the customer has viewed the bill.
+      const invite = document.getElementById("game-invite-modal");
+      invite.classList.remove("hidden");
+      invite.classList.add("flex");
+    }
+
+    function acceptGameInvite() {
+      const invite = document.getElementById("game-invite-modal");
+      invite.classList.add("hidden");
+      invite.classList.remove("flex");
+      // Open the game on its start screen; the customer chooses when to start.
+      openCyberGame();
+    }
+
+    function skipGameInvite() {
+      const invite = document.getElementById("game-invite-modal");
+      invite.classList.add("hidden");
+      invite.classList.remove("flex");
+      showToast("Enjoy your meal! Your order is being prepared.");
     }
 
     // Orders Views
@@ -1204,68 +1492,7 @@
               <span class="text-stone-500">Method: ${order.payMode}</span>
               <span class="text-stone-700">Total Billed: <strong class="font-mono text-blue-600 text-sm">₹${order.total}</strong></span>
             </div>
-          </div>
-        `;
-      }).join("");
-    }
-
-    // Kitchen Display System (KDS)
-    function renderKDS() {
-      const container = document.getElementById("kds-tickets-container");
-      const empty = document.getElementById("kds-empty");
-      if (!container) return;
-
-      const pending = tableOrders.filter(o => o.status !== "Served");
-
-      if (pending.length === 0) {
-        container.innerHTML = "";
-        if (empty) empty.classList.remove("hidden");
-        return;
-      }
-
-      if (empty) empty.classList.add("hidden");
-
-      container.innerHTML = pending.map(ord => {
-        return `
-          <div class="bg-white border border-stone-200 rounded-3xl p-5 shadow-xs space-y-3 flex flex-col justify-between">
-            <div>
-              <div class="flex items-center justify-between pb-2 border-b border-stone-100">
-                <div>
-                  <span class="font-display font-black text-blue-600 text-base">${ord.table}</span>
-                  <span class="text-stone-400 text-xs ml-1">#${ord.id}</span>
-                </div>
-                <span class="font-mono text-xs text-stone-400">${ord.timestamp}</span>
-              </div>
-
-              <div class="py-2 text-[11px] text-stone-500">
-                <div>Guest: <strong class="text-stone-800">${ord.guest}</strong> (${ord.phone})</div>
-                ${ord.notes ? `<div class="mt-1 p-2 bg-amber-50 border border-amber-200 text-amber-800 rounded-xl">⚠️ ${ord.notes}</div>` : ''}
-              </div>
-
-              <div class="space-y-1.5 my-2">
-                ${ord.items.map(it => `
-                  <div class="flex justify-between items-center text-xs bg-stone-50 p-2 rounded-xl border border-stone-100">
-                    <span class="font-semibold text-stone-800">${it.name}</span>
-                    <span class="font-mono font-bold text-stone-900 bg-white px-2 py-0.5 rounded-lg border border-stone-200">×${it.count}</span>
-                  </div>
-                `).join("")}
-              </div>
-            </div>
-
-            <div class="pt-3 border-t border-stone-100 grid grid-cols-2 gap-2 text-xs font-bold">
-              <button 
-                onclick="updateOrderStatus('${ord.id}', 'Cooking')" 
-                class="py-2 rounded-xl border border-sky-300 text-sky-800 hover:bg-sky-50 transition ${ord.status === 'Cooking' ? 'bg-sky-50 ring-1 ring-sky-400' : ''}"
-              >
-                Cooking
-              </button>
-              <button 
-                onclick="updateOrderStatus('${ord.id}', 'Served')" 
-                class="py-2 rounded-xl bg-stone-900 hover:bg-black text-white transition"
-              >
-                Served ✓
-              </button>
-            </div>
+            ${order.status !== "Served" ? `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2"><button onclick="openCyberGame()" class="w-full py-2.5 rounded-xl bg-cyan-100 hover:bg-cyan-200 border border-cyan-300 text-cyan-900 text-xs font-bold">⚡ Play Waiting Game</button><button onclick="updateOrderStatus('${order.id}', 'Served')" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold">Food Arrived — Stop Game</button></div>` : `<p class="text-xs text-emerald-700 font-semibold">✓ Food marked as arrived</p>`}
           </div>
         `;
       }).join("");
@@ -1288,7 +1515,7 @@
 
     // Tab Switching
     function switchTab(tab) {
-      const tabs = ['menu', 'favs', 'orders', 'kds'];
+      const tabs = ['menu', 'favs', 'orders', 'reviews', 'about'];
       tabs.forEach(t => {
         const el = document.getElementById(`view-${t}`);
         const btn = document.getElementById(`btn-tab-${t}`);
@@ -1303,7 +1530,7 @@
 
       if (tab === 'favs') renderFavorites();
       if (tab === 'orders') renderOrders();
-      if (tab === 'kds') renderKDS();
+      if (tab === 'reviews') renderSubmittedReviews();
     }
 
     // Toast Alert
@@ -1348,6 +1575,13 @@
     let bestScore = 0;
 
     function openCyberGame() {
+      // Customers can access the waiting game only after placing an order
+      // and only while at least one order has not been marked as served.
+      const eligibleOrder = tableOrders.some(order => order.status !== "Served");
+      if (!eligibleOrder) {
+        showToast("Place an order first to unlock the waiting game");
+        return;
+      }
       const modal = document.getElementById("cyber-modal");
       modal.classList.remove("hidden");
       modal.classList.add("flex");
@@ -1436,6 +1670,11 @@
     }
 
     function startCyberGame() {
+      if (!tableOrders.some(order => order.status !== "Served")) {
+        showToast("The waiting game is available only after placing an order");
+        closeCyberGame();
+        return;
+      }
       resetCyberWorld();
       cyberRunning = true;
       document.getElementById("cyber-start-overlay").classList.add("hidden");
@@ -1744,6 +1983,31 @@
       }
     });
 
+    // Customer-submitted reviews are stored locally in this browser.
+    function getSubmittedReviews() {
+      try { return JSON.parse(localStorage.getItem("tb_reviews") || "[]"); }
+      catch (error) { return []; }
+    }
+
+    function renderSubmittedReviews() {
+      const container = document.getElementById("submitted-reviews");
+      if (!container) return;
+      const reviews = getSubmittedReviews();
+      container.innerHTML = reviews.map(review => `
+        <article class="border border-stone-200 bg-stone-50 rounded-2xl p-4">
+          <div class="text-amber-500">${"★".repeat(review.rating)}${"☆".repeat(5-review.rating)}</div>
+          <h4 class="font-bold text-stone-900 mt-1">${escapeReviewText(review.name)}</h4>
+          <p class="text-sm text-stone-600 mt-2">${escapeReviewText(review.message)}</p>
+        </article>
+      `).join("");
+    }
+
+    function escapeReviewText(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[char]));
+    }
+
     // DOM Ready listener
     document.addEventListener("DOMContentLoaded", () => {
       initTables();
@@ -1753,7 +2017,6 @@
       updateCartUI();
       updateFavBadge();
       renderOrders();
-      renderKDS();
 
       // Search input binding
       const searchInput = document.getElementById("dish-search-input");
@@ -1776,6 +2039,26 @@
         sorter.addEventListener("change", (e) => {
           sortOrder = e.target.value;
           renderMenu();
+        });
+      }
+
+      // Customer review form binding
+      const reviewForm = document.getElementById("review-form");
+      if (reviewForm) {
+        reviewForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const review = {
+            name: document.getElementById("review-name").value.trim(),
+            rating: Number(document.getElementById("review-rating").value),
+            message: document.getElementById("review-message").value.trim()
+          };
+          if (!review.name || !review.message) return;
+          const reviews = getSubmittedReviews();
+          reviews.unshift(review);
+          localStorage.setItem("tb_reviews", JSON.stringify(reviews));
+          reviewForm.reset();
+          renderSubmittedReviews();
+          showToast("Thanks for sharing your review!");
         });
       }
 
